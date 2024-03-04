@@ -27,7 +27,7 @@ onKeyDown("down", () => {
 for (let i = 0; i < 5; i++) {
   const x = rand(0, width());
   const y = rand(0, height());
-  add([
+  const enemy = add([
     sprite("enemy", faceSize),
     pos(x, y),
     area(),
