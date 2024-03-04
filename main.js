@@ -3,7 +3,7 @@ import kaboom from "kaboom";
 kaboom();
 
 loadSprite("ball", "/ball.png");
-loadSprite("enemy", "/enemy.jpg");
+loadSprite("enemy", "/enemy.png");
 loadSprite("fire", "/fire.png");
 
 let ballsize = { width: 100, height: 100 };
