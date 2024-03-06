@@ -19,9 +19,19 @@ let player = add([
   body(),
 ]);
 
-for (let i = 0; i < 5; i++) {
-  const y = rand(height());
+// for (let i = 0; i < 5; i++) {
+//   const y = rand(height());
 
+//   let enemy = add([
+//     sprite("enemy", enemysize),
+//     pos(width() - enemysize.width, y),
+//     area(),
+//     "enemy",
+//     move(vec2(-rand(width()), rand(height())), 100),
+//   ]);
+// }
+
+enemy.onUpdate(() => {
   let enemy = add([
     sprite("enemy", enemysize),
     pos(width() - enemysize.width, y),
@@ -29,7 +39,13 @@ for (let i = 0; i < 5; i++) {
     "enemy",
     move(vec2(-rand(width()), rand(height())), 100),
   ]);
-}
+  if (enemy.pos < 0 || enemy.pos > width()) {
+    (enemy.pos = pos(width() - enemysize.width)), y;
+  }
+  if (enemy.pos.y < 0 || enemy.pos.y > height()) {
+    enemy.vel.y = -enemy.vel.y;
+  }
+});
 
 onKeyDown("up", () => {
   player.move(0, -SPEED);
