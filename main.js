@@ -31,8 +31,11 @@ for (let i = 0; i < 5; i++) {
     sprite("enemy", faceSize),
     pos(x, y),
     area(),
-    move(player.pos.angle(vec2(rand(0, width()), rand(0, height()))), 100),
     "enemy",
+    {
+      speed: rand(120, 320),
+      dir: choose([-1, 1]),
+    },
   ]);
 }
 onKeyDown("space", () => {
@@ -46,4 +49,11 @@ onKeyDown("space", () => {
   fire.onCollide("enemy", (enemy) => {
     destroy(enemy);
   });
+});
+
+onUpdate("enemy", (e) => {
+  e.move(player.pos.angle(vec2(rand(0, width()), rand(0, height()))), 100);
+  if (e.pos.x < 0 || e.pos.x > height()) {
+    e.dir = e.dir;
+  }
 });
