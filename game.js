@@ -26,7 +26,7 @@ onKeyDown("down", () => {
 onKeyDown("up", () => {
   player.move(0, -SPEED);
 });
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 100; i++) {
   add([
     sprite("enemy", stoneSize),
     pos(width() - stoneSize.width, rand(height())),
@@ -36,14 +36,15 @@ for (let i = 0; i < 5; i++) {
     "enemy",
     rotate(0),
     {
-      speed: rand(10, 20),
+      speed: rand(120, 320),
       dir: choose([-1, 1]),
     },
   ]);
 }
-onUpdate("enemy", (e) => {
-  if (e.pos.x < 0 || e.pos.x > width()) {
-    e.dir = -e.dir;
+onUpdate("enemy", (p) => {
+  p.move(p.dir * p.speed, 0);
+  if (p.pos.x < 0 || p.pos.x > width()) {
+    p.dir = -p.dir;
   }
 });
 
