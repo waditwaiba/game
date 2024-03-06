@@ -25,14 +25,14 @@ onKeyDown("down", () => {
 for (let i = 0; i < 5; i++) {
   const x = rand(0, width());
   const y = rand(0, height());
-  add([
-    sprite("enemy", enemysize),
-    pos(x, y),
-    area(),
-    move(player.pos.angle(vec2(rand(0, width()), rand(0, height()))), 100),
-    "enemy",
-  ]);
+  add([sprite("enemy", enemysize), pos(x, y), area(), "enemy"]);
 }
+onUpdate("enemy", (e) => {
+  e.move(player.pos.angle(vec2(rand(0, width()), rand(0, height()))), 100);
+  if (e.pos.x < 0 || e.pos.x > width()) {
+    e.dir = -e.dir;
+  }
+});
 const SPEED = 320;
 
 onKeyDown("space", () => {
