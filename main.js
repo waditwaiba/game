@@ -30,23 +30,23 @@ for (let i = 0; i < 5; i++) {
   add([
     sprite("enemy", stoneSize),
     pos(width() - stoneSize.width, rand(height())),
-    move(vec2(-rand(width()), rand(height())), 50),
+
     area(),
     body(),
     "enemy",
     rotate(0),
     {
       speed: rand(10, 20),
-      dir: choose([-1, 1]),
+      dir: choose([-100, 310]),
     },
   ]);
-}
-onUpdate("enemy", (e) => {
-  if (e.pos.x < 0 || e.pos.x > width()) {
-    e.dir = -e.dir;
-  }
-});
 
+  onUpdate("enemy", (e) => {
+    if (e.pos.x < 0 || e.pos.x > width()) {
+      e.dir = -e.dir;
+    }
+  });
+}
 onKeyDown("space", () => {
   let fire = add([
     sprite("fire", fireSize),
@@ -60,4 +60,3 @@ onKeyDown("space", () => {
     destroy(enemy);
   });
 });
-//  border//
