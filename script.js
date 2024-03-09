@@ -89,7 +89,7 @@ function getEmployeesNames(employees) {
   }
   return result;
 }
-console.log(getEmployeesNames(employees));
+// console.log(getEmployeesNames(employees));
 
 function getEmployeesAges(employees) {
   let result = [];
@@ -98,7 +98,7 @@ function getEmployeesAges(employees) {
   }
   return result;
 }
-console.log(getEmployeesAges(employees));
+// console.log(getEmployeesAges(employees));
 
 function getEmployeesSalaryAndName(employees) {
   let result = [];
@@ -107,9 +107,50 @@ function getEmployeesSalaryAndName(employees) {
   }
   return result;
 }
-console.log(getEmployeesSalaryAndName(employees));
-//mapping
+// console.log(getEmployeesSalaryAndName(employees));
+// mapping;
 let names = employees.map((emp) => emp.name);
 let ages = employees.map((emp) => emp.age);
 let namesAndEges = employees.map((emp) => `${emp.name}-${emp.salary}`);
-console.log(names, ages, namesAndEges);
+// console.log(names, ages, namesAndEges);
+
+// filter
+function checkGenter(employees) {
+  let array = [];
+  for (let emp of employees) {
+    if (emp.gender === "Female") {
+      array.push(emp.name);
+    }
+  }
+  return array;
+}
+console.log(checkGenter(employees));
+
+function checkAge(employees) {
+  let array = [];
+  for (let emp of employees) {
+    if (emp.age <= 50) {
+      array.push(emp.name);
+    }
+  }
+  return array;
+}
+console.log(checkAge(employees));
+
+let result = [];
+let age = employees.filter((emp) => {
+  if (emp.age <= 50) {
+    result.push(emp.name);
+  }
+  return result;
+});
+console.log(result);
+
+let genterResult = [];
+let checkGenter = employees.filter((emp) => {
+  if (emp.age === "Female") {
+    genterResult.push(emp.name);
+  }
+  return result;
+});
+console.log(genterResult);
