@@ -84,8 +84,26 @@ const employees = [
 function getEmployeesName(employees) {
   let employeesNames = [];
   for (const element of employees) {
-    employeesNames.push;
+    employeesNames.push(element.name);
   }
   return employeesNames;
 }
 console.log(getEmployeesName(employees));
+
+function getEmployeesAge(employees) {
+  let employeesAge = [];
+  for (const element of employees) {
+    employeesAge.push(element.age);
+  }
+  return employeesAge;
+}
+console.log(getEmployeesAge(employees));
+
+function getEmployeesNamesAndSalary(employees) {
+  let employeesNamesAndSalary = [];
+  for (const element of employees) {
+    employeesNamesAndSalary.push(`${element.name}-${element.salary}`);
+  }
+  return employeesNamesAndSalary;
+}
+console.log(getEmployeesNamesAndSalary(employees));
