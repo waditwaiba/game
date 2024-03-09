@@ -103,5 +103,39 @@ function getNameSalary(employees) {
   for (let emp of employees) {
     employeesNameSalary.push(`${emp.name}-${emp.salary}`);
   }
+  return employeesNameSalary;
 }
-// mapping
+let employeesNames = employees.map((emp) => emp.name);
+let employeesAges = employees.map((emp) => emp.age);
+let employeesNameSalary = employees.map((emp) => `${emp.name}-${emp.salary}`);
+
+console.log(employeesNames);
+console.log(employeesAges);
+console.log(employeesNameSalary);
+
+function getemployees(employees) {
+  let employeesName = [];
+  for (let emp of employees) {
+    if (emp.age < 50) {
+      employeesName.push(emp.name);
+    }
+  }
+  return employeesName;
+}
+console.log(getemployees(employees));
+
+function getemployeesFemale(employees) {
+  let employeesFemalesName = [];
+  for (let emp of employees) {
+    if (emp.gender === "Female") {
+      employeesFemalesName.push(emp.name);
+    }
+  }
+  return employeesFemalesName;
+}
+console.log(getemployeesFemale(employees));
+
+let employeesName = employees.filter((emp) => emp.age);
+let employeesFemalesName = employees.filter((emp) => emp.gender === "Female");
+console.log(employeesName);
+console.log(employeesFemalesName);
