@@ -118,3 +118,32 @@ let employeesNameAndSalary = employees.map(
   (emp) => `${emp.name} - ${emp.salary}`
 );
 console.log(employeesNameAndSalary);
+
+function getEmployees(employees) {
+  let employeesNames = [];
+  for (let emp of employees) {
+    if (emp.age < 50) {
+      employeesNames.push(emp.name);
+    }
+  }
+  return employeesNames;
+}
+
+console.log(getEmployees(employees));
+
+function getFemailEmployees(employees) {
+  let femaleEmployees = [];
+  for (let emp of employees) {
+    if (emp.gender === "Female") {
+      femaleEmployees.push(emp.name);
+    }
+  }
+  return femaleEmployees;
+}
+console.log(getFemailEmployees(employees));
+
+/////  filter
+let employeesnames = employees.filter((emp) => emp.age < 50);
+let femalemployees = employees.filter((emp) => emp.gender === "Female");
+console.log(employeesnames);
+console.log(femalemployees);
