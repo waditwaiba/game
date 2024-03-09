@@ -147,7 +147,7 @@ let age = employees.filter((emp) => {
 console.log(result);
 
 let genterResult = [];
-let checkGenter = employees.filter((emp) => {
+let Genter = employees.filter((emp) => {
   if (emp.age === "Female") {
     genterResult.push(emp.name);
   }
