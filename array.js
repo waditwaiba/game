@@ -135,7 +135,7 @@ function getemployeesFemale(employees) {
 }
 console.log(getemployeesFemale(employees));
 
-let employeesName = employees.filter((emp) => emp.age);
+let employeesName = employees.filter((emp) => emp.age < 50);
 let employeesFemalesName = employees.filter((emp) => emp.gender === "Female");
 console.log(employeesName);
 console.log(employeesFemalesName);
