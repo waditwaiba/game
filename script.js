@@ -1,4 +1,16 @@
-// mapping - map()
+// create myMap
+Array.prototype.mymap = function (func) {
+  const array = [];
+  for (let i = 0; i < this.length; i++) {
+    array.push();
+  }
+  return array;
+};
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// use myMap
+let a = array.mymap((i) => i + 1);
+console.log(a);
+
 const employees = [
   {
     name: "Amit Patel",
