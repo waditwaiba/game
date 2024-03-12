@@ -1,16 +1,3 @@
-// create myMap
-Array.prototype.mymap = function (func) {
-  const array = [];
-  for (let i = 0; i < this.length; i++) {
-    array.push();
-  }
-  return array;
-};
-let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// use myMap
-let a = array.mymap((i) => i + 1);
-console.log(a);
-
 const employees = [
   {
     name: "Amit Patel",
@@ -121,7 +108,7 @@ function getEmployeesSalaryAndName(employees) {
 }
 // console.log(getEmployeesSalaryAndName(employees));
 // mapping;
-let names = employees.map((emp) => emp.name);
+let name = employees.map((emp) => emp.name);
 let ages = employees.map((emp) => emp.age);
 let namesAndEges = employees.map((emp) => `${emp.name}-${emp.salary}`);
 // console.log(names, ages, namesAndEges);
@@ -166,3 +153,33 @@ let Genter = employees.filter((emp) => {
   return result;
 });
 console.log(genterResult);
+// ///////////
+function getName(arg) {
+  return arg.name;
+}
+console.log(getName({ name: "naziya" }));
+
+let callBack = (arg) => {
+  return arg.name;
+};
+console.log(callBack({ name: "fathima" }));
+
+let simpleCallBack = (arg) => arg.name;
+
+let names = employees.map(simpleCallBack);
+console.log(names);
+// () - argument
+// => -  function
+// {} -  function bres
+// create myMap
+Array.prototype.mymap = function (func) {
+  const array = [];
+  for (let i = 0; i < this.length; i++) {
+    array.push(func(this[i], i, this));
+  }
+  return array;
+};
+let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// use myMap
+let a = array.mymap((i) => i + 2);
+console.log(a);
