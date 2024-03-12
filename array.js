@@ -1,3 +1,15 @@
+Array.propotype.myMap = function (fn) {
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(fn(this[i], i, this));
+  }
+  return result;
+};
+
+let employNames = employees.myMap((i) => i.name);
+console.log(employNames);
+
+console.log(employees.myMap);
 const employees = [
   {
     name: "Amit Patel",
@@ -108,8 +120,6 @@ function getemployeesNameAndSalary(employees) {
 console.log(getemployeesNameAndSalary(employees));
 
 /// maping
-let employeesNames = employees.map((emp) => emp.name);
-console.log(employeesNames);
 
 let employeesAges = employees.map((emp) => emp.age);
 console.log(employeesAges);
@@ -147,3 +157,7 @@ let employeesnames = employees.filter((emp) => emp.age < 50);
 let femalemployees = employees.filter((emp) => emp.gender === "Female");
 console.log(employeesnames);
 console.log(femalemployees);
+
+const getEmpName = (emp) => emp.name;
+let empNames = employees.map(getEmpName);
+console.log(empNames);

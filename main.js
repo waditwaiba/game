@@ -32,6 +32,7 @@ for (let i = 0; i < 5; i++) {
     pos(x, y),
     area(),
     "enemy",
+
     {
       speed: rand(120, 320),
       dir: choose([-1, 1]),
