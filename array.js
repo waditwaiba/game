@@ -1,15 +1,3 @@
-Array.propotype.myMap = function (fn) {
-  let result = [];
-  for (let i = 0; i < this.length; i++) {
-    result.push(fn(this[i], i, this));
-  }
-  return result;
-};
-
-let employNames = employees.myMap((i) => i.name);
-console.log(employNames);
-
-console.log(employees.myMap);
 const employees = [
   {
     name: "Amit Patel",
@@ -92,72 +80,98 @@ const employees = [
     manager: null,
   },
 ];
-function getEmployeesNames(employees) {
-  let employeesNames = [];
-  for (let emp of employees) {
-    employeesNames.push(emp.name);
+Array.prototype.mymap = function (fn) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(fn(this[i], i, this));
   }
-  return employeesNames;
-}
-console.log(getEmployeesNames(employees));
+  return result;
+};
+// let numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// use myMap
+let employeesName = employees.mymap((i) => i.name);
+console.log(employeesName);
 
-function getEmployeesAges(employees) {
-  let employeesAges = [];
-  for (let emp of employees) {
-    employeesAges.push(emp.age);
-  }
-  return employeesAges;
-}
-console.log(getEmployeesAges(employees));
-
-function getemployeesNameAndSalary(employees) {
-  let nameAndAge = [];
-  for (let emp of employees) {
-    nameAndAge.push(`${emp.name} - ${emp.salary}`);
-  }
-  return nameAndAge;
-}
-console.log(getemployeesNameAndSalary(employees));
-
-/// maping
-
-let employeesAges = employees.map((emp) => emp.age);
-console.log(employeesAges);
-
-let employeesNameAndSalary = employees.map(
-  (emp) => `${emp.name} - ${emp.salary}`
-);
-console.log(employeesNameAndSalary);
-
-function getEmployees(employees) {
-  let employeesNames = [];
-  for (let emp of employees) {
-    if (emp.age < 50) {
-      employeesNames.push(emp.name);
+Array.prototype.myFilter = function (fn) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i])) {
+      result.push(this[i]);
     }
   }
-  return employeesNames;
-}
+  return result;
+};
+// use myFilter
 
-console.log(getEmployees(employees));
-
-function getFemailEmployees(employees) {
-  let femaleEmployees = [];
-  for (let emp of employees) {
-    if (emp.gender === "Female") {
-      femaleEmployees.push(emp.name);
-    }
-  }
-  return femaleEmployees;
-}
-console.log(getFemailEmployees(employees));
-
-/////  filter
-let employeesnames = employees.filter((emp) => emp.age < 50);
-let femalemployees = employees.filter((emp) => emp.gender === "Female");
-console.log(employeesnames);
-console.log(femalemployees);
-
-const getEmpName = (emp) => emp.name;
-let empNames = employees.map(getEmpName);
+let empNames = employees.myFilter((emp) => emp.age < 50);
 console.log(empNames);
+
+// function getEmployeesNames(employees) {
+//   let employeesNames = [];
+//   for (let emp of employees) {
+//     employeesNames.push(emp.name);
+//   }
+//   return employeesNames;
+// }
+// console.log(getEmployeesNames(employees));
+
+// function getEmployeesAges(employees) {
+//   let employeesAges = [];
+//   for (let emp of employees) {
+//     employeesAges.push(emp.age);
+//   }
+//   return employeesAges;
+// }
+// console.log(getEmployeesAges(employees));
+
+// function getemployeesNameAndSalary(employees) {
+//   let nameAndAge = [];
+//   for (let emp of employees) {
+//     nameAndAge.push(`${emp.name} - ${emp.salary}`);
+//   }
+//   return nameAndAge;
+// }
+// console.log(getemployeesNameAndSalary(employees));
+
+// /// maping
+
+// let employeesAges = employees.map((emp) => emp.age);
+// console.log(employeesAges);
+
+// let employeesNameAndSalary = employees.map(
+//   (emp) => `${emp.name} - ${emp.salary}`
+// );
+// console.log(employeesNameAndSalary);
+
+// function getEmployees(employees) {
+//   let employeesNames = [];
+//   for (let emp of employees) {
+//     if (emp.age < 50) {
+//       employeesNames.push(emp.name);
+//     }
+//   }
+//   return employeesNames;
+// }
+
+// console.log(getEmployees(employees));
+
+// function getFemailEmployees(employees) {
+//   let femaleEmployees = [];
+//   for (let emp of employees) {
+//     if (emp.gender === "Female") {
+//       femaleEmployees.push(emp.name);
+//     }
+//   }
+//   return femaleEmployees;
+// }
+// console.log(getFemailEmployees(employees));
+
+// /////  filter
+// let employeesnames = employees.filter((emp) => emp.age < 50);
+// let femalemployees = employees.filter((emp) => emp.gender === "Female");
+// console.log(employeesnames);
+// console.log(femalemployees);
+
+// const getEmpName = (emp) => emp.name;
+// let empNames = employees.map(getEmpName);
+// console.log(empNames);
