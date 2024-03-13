@@ -1,3 +1,15 @@
+Array.prototype.myMap = function (func) {
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(func(this[i], i, this));
+  }
+
+  return result;
+};
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let a = num.myMap((num) => num + 1);
+console.log(a);
+
 const employees = [
   {
     name: "Amit Patel",
@@ -105,6 +117,7 @@ function getNameSalary(employees) {
   }
   return employeesNameSalary;
 }
+
 let employeesNames = employees.map((emp) => emp.name);
 let employeesAges = employees.map((emp) => emp.age);
 let employeesNameSalary = employees.map((emp) => `${emp.name}-${emp.salary}`);
@@ -139,3 +152,18 @@ let employeesName = employees.filter((emp) => emp.age < 50);
 let employeesFemalesName = employees.filter((emp) => emp.gender === "Female");
 console.log(employeesName);
 console.log(employeesFemalesName);
+
+// function getName(emp) {
+//   return emp.name;
+// }
+// console.log(getName({ name: "sulthanaNazeer" }));
+
+// const getName = (emp) => {
+//   return emp.name;
+// };
+// console.log(getName(emp));
+
+const getName = (emp) => emp.name;
+
+let empName = employees.map(getName);
+console.log(empName);
