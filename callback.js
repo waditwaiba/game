@@ -33,5 +33,20 @@ Array.prototype.myEvery = function (func) {
 
 let array = [1, 0, 2, 41, 5];
 
-let a = array.every((arg) => arg < 50);
+let a = array.myEvery((arg) => arg < 50);
 console.log(a);
+// ///////////////
+let some = array.some((arg) => arg > 50);
+console.log(some);
+
+Array.prototype.mySome = function (func) {
+  let value = false;
+  for (let i = 0; i < this.length; i++) {
+    if (func(this[i])) {
+      value = true;
+    }
+  }
+  return value;
+};
+let mysome = array.mySome((arg) => arg < 50);
+console.log(mysome);
