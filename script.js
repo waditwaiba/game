@@ -179,7 +179,18 @@ Array.prototype.mymap = function (func) {
   }
   return array;
 };
+
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // use myMap
 let a = array.mymap((i) => i + 2);
-console.log(a);
+// console.log(a);
+Array.prototype.myFilter = function (func) {
+  const array = [];
+  for (let i = 0; i < this.length; i++) {
+    func(this[i], i, this);
+  }
+  return array;
+};
+let b = array.myFilter((i) => i == 2);
+console.log(b);
+//
