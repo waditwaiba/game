@@ -1,3 +1,11 @@
+Array.prototype.myMap = function (fn) {
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(fn(this[i], i, this));
+  }
+  return result;
+};
+
 const employees = [
   {
     name: "Amit Patel",
@@ -140,5 +148,26 @@ function getGender(employees) {
 }
 console.log(getGender(employees));
 
-let genter = employees.filter((emp) => emp.gender === "Female");
-console.log(genter);
+//------------
+
+// function getEmpName(emp) {
+//   return emp.name;
+// }
+// let names = getEmpName({ name: "pink" });
+// console.log(names);
+
+// let getEmpName = (emp) => {
+//   return emp.name;
+// };
+// console.log(getEmpName({ name: "pink" }));
+
+// let getEmpName = (emp) => emp.name;
+// console.log(getEmpName({ name: "pink" }));
+
+// let namess = employees.map(getEmpName);
+// console.log(namess);
+
+let getEmpName = (emp) => emp.name;
+
+let namess = employees.myMap(getEmpName);
+console.log(namess);
